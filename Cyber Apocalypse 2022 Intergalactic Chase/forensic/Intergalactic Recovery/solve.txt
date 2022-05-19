@@ -6,7 +6,7 @@ sudo losetup /dev/loop1 disk1.img
 sudo losetup /dev/loop2 disk2.img
 sudo losetup /dev/loop3 disk3.img
 
-The next step was to rebuild the matrix:
+The next step was to rebuild the RAID array:
 sudo mdadm --create --assume-clean --level = 5 --raid-devices = 3 /dev/md0 /dev/loop2 /dev/loop3 /dev/loop1
 
 and mounting the device:
