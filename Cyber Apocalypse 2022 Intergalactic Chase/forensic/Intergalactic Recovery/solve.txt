@@ -1,0 +1,19 @@
+The damaged disk was rebuilt using the tool (http://www.nirsoft.net/utils/xorfiles.html).
+
+Then the images were mapped to devices:
+
+sudo losetup / dev / loop1 disk1.img
+sudo losetup / dev / loop2 disk2.img
+sudo losetup / dev / loop3 disk3.img
+
+The next step was to rebuild the matrix:
+sudo mdadm --create --assume-clean --level = 5 --raid-devices = 3 / dev / md0 / dev / loop2 / dev / loop3 / dev / loop1
+
+and mounting the device:
+
+mount / dev / md0 / mnt / raidarray
+
+There was a PDF file (imw_1337.pdf) in the mounted device.
+After opening it, we saw the flag:
+
+HTB {f33ls_g00d_t0_b3_1nterg4l4ct1c_m0st_w4nt3d}
